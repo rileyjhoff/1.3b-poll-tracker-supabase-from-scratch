@@ -58,7 +58,46 @@ Additional considerations:
 
 1. hard code html for sign in/up and polls pages
 2. style hard coded html
-3. 
+3. sign in page set up
+    1. form event listeners
+    2. supabase fetch function
+        - sign in function
+        - sing up function
+        - redirect function
+        - authenticate/user function
+4. polls page set up
+    1. form event listener
+        - updates current poll state (questions & options)
+    2. render poll function
+    3. display poll function
+        - clears current poll container
+        - calls render poll function
+        - appends to current poll container
+    4. vote increment/decrement event listeners
+        - updates current poll state (votes)
+        - calls display poll function
+    5. supabase fetch functions
+        - create a poll function
+            - inserts current poll state to a row in supabase
+        - get polls function
+            - fetches all rows of poll data from supabase
+        - logout function
+    6. display past polls function
+        - clears past poll container
+        - gets past poll data via getPolls function
+        - loop through array of past poll data
+            - calls render poll for each object of data
+            - appends to past poll container
+    7. on load event listener
+        - calls display past polls function
+    8. publish poll event listener
+        - calls create a poll function
+        - clears current poll container
+        - resets state
+        - calls display past polls function
+    9. logout event listener
+        - calls supabase logout function (redirects user to sign in/up page)
+5. stretch goals / styling
 
 # Sign In/Up Page
 
@@ -92,6 +131,8 @@ Additional considerations:
 
 ## HTML Setup
 
+- logout button (not in wireframes)
+  - in header
 - top div/section
   - create a poll div
     - create a poll header
