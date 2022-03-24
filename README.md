@@ -92,4 +92,34 @@ Additional considerations:
 
 ## HTML Setup
 
+- top div/section
+  - create a poll div
+    - create a poll header
+    - poll form
+      - question label/input
+      - option 1 label/input
+      - option 2 label/input
+      - launch poll (submit) button
+  - current poll div
+    - current poll header
+    - current poll state container (div) - dynamically render and append following
+      - question & options div
+        - question header
+        - option p tags
+          - span for vote state
+      - voting div
+        - voting header
+        - buttons div
+          - option 1 button div
+            - option 1 p tag
+            - add & subtract buttons
+          - option 2 button div
+            - option 2 p tag
+            - add & subtract buttons
+  - current poll div
+- bottom div/section
+  - past polls header (h2?)
+  - past polls container (div)
+    - dynamically render and append past polls with user data to this container
+
 ## Events
