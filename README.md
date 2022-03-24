@@ -56,7 +56,9 @@ Additional considerations:
 
 ## Order
 
-1. 
+1. hard code html for sign in/up and polls pages
+2. style hard coded html
+3. 
 
 # Sign In/Up Page
 
@@ -64,7 +66,25 @@ Additional considerations:
 
 ## HTML Setup
 
+- sign in div
+  - sign in h3
+  - sign in form
+    - email label/input
+    - password label/input
+    - submit button
+- sign up div
+  - sign up h3
+  - sign up form
+    - email label/input
+    - password label/input
+    - submit button
+
 ## Events
+
+- user signs in or signs up
+  - get the username and password
+  - log in the user via supabase
+  - redirect to polls page (if user is still signed in, automatically redirect to polls page)
 
 # Polls Page
 
