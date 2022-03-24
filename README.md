@@ -52,7 +52,7 @@ Additional considerations:
 | ASYNC (stretch: with TDD): `createPoll(poll)` : creates a poll for currently logged in user in supabase |1|
 | ASYNC (stretch: with TDD): `getPolls()` : returns polls for currently logged in user from supabase |1|
 
-# Plan:
+# Plan
 
 ## Order
 

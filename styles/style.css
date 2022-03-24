@@ -68,19 +68,43 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 80%;
+    max-height: 90%;
     margin-bottom: calc(var(--footer-height));
 }
 
-section {
+.log-in-section {
     background-color: var(--color5);
-    max-width: 95%;
+    width: 95%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top: var(--gutter);
     padding-bottom: var(--gutter);
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
-    border: solid 2px black;
+}
+
+.log-in {
+    display: flex;
+    flex-direction: column;
+    margin: 0 40px;
+    padding: 20px;
+    border: solid 1px black;
+}
+
+form, form > label {
+    display: flex;
+    flex-direction: column;
+}
+
+.log-in button {
+    width: fit-content;
+    margin: 10px 5px;
+}
+
+h3 {
+    text-align: center;
+    margin: 0 0 5px;
 }
