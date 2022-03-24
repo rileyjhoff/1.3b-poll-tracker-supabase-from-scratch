@@ -107,6 +107,7 @@ Additional considerations:
         - question header
         - option p tags
           - span for vote state
+        - publish poll button (not in wireframes)
       - voting div
         - voting header
         - buttons div
@@ -123,3 +124,22 @@ Additional considerations:
     - dynamically render and append past polls with user data to this container
 
 ## Events
+
+- user launches a poll (via form submit)
+  - get poll question and options from the form & add to current poll state
+  - clear form
+  - dynamically render and append the current poll state to the current poll container
+- user votes on poll
+  - update vote state
+  - clear current poll container
+  - dynamically render and append the current poll state to the current poll container
+- user publishes a poll
+  - store data in supabase
+  - reset current poll state
+  - clear current poll container
+  - clear past poll container
+  - fetch user's poll data from supabase
+  - dynamically render and append past polls to the past poll container
+- past polls display on load
+  - fetch user's poll data from supabase
+  - dynamically render and append past polls to the past poll container
