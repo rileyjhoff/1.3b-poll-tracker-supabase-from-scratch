@@ -33,18 +33,25 @@ body {
 
 header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     background-color: var(--color3);
     height: var(--header-height);
     box-shadow: var(--shadow);
 }
 
 .gutter-right {
-    margin-right: 20px;
+    margin-left: 5%;
 }
 
 header img {
     height: var(--header-height);
+}
+
+#logout {
+    margin-right: 10%;
+    height: fit-content;
+    padding: 5px;
+    align-self: center;
 }
 
 footer {
@@ -58,11 +65,6 @@ footer {
     box-shadow: var(--shadow);
 }
 
-h2 {
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
 main {
     display: flex;
     flex-direction: column;
@@ -73,7 +75,7 @@ main {
     margin-bottom: calc(var(--footer-height));
 }
 
-.log-in-section {
+.login-section {
     background-color: var(--color5);
     width: 95%;
     height: 100%;
@@ -86,7 +88,7 @@ main {
     margin-bottom: var(--gutter);
 }
 
-.log-in {
+.login {
     display: flex;
     flex-direction: column;
     margin: 0 40px;
@@ -99,12 +101,65 @@ form, form > label {
     flex-direction: column;
 }
 
-.log-in button {
+.login button {
     width: fit-content;
-    margin: 10px 5px;
+    margin: 12px 0 0;
+    align-self: center;
+}
+
+.login h3 {
+    text-align: center;
+    margin: 0 0 5px;
+}
+
+h2 {
+    /* font-size: 1.8rem; */
+    font-weight: bold;
+    text-align: center;
+    margin: 5px 0;
 }
 
 h3 {
     text-align: center;
-    margin: 0 0 5px;
+}
+
+.polls-section {
+    background-color: var(--color5);
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: var(--gutter);
+    padding-bottom: var(--gutter);
+    margin-top: var(--gutter);
+    margin-bottom: var(--gutter);
+    border: 2px solid black;
+}
+
+.polls-section div {
+    border: 1px solid black;
+}
+
+.polls-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+#past-polls-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#create-poll, #current-poll {
+    padding: 10px;
+    margin: 10px;
+}
+
+#poll-form button {
+    width: fit-content;
+    margin: 12px 0 0;
+    align-self: center;
 }

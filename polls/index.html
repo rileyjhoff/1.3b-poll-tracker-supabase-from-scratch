@@ -18,9 +18,42 @@
         <div class="gutter-right logo">
             <img src="../assets/big-logo.png" />
         </div>
+        <button id="logout">Logout</button>
     </header>
     <main>
+        <section class="polls-section">
+            <div class="polls-top">
+                <div id="create-poll">
+                    <h2>Create a Poll</h2>
+                    <form id="poll-form">
+                        <label> Question:
+                            <input name="question" id="question">
+                        </label>
+                        <label> Option 1:
+                            <input name="option-1" class="options">
+                        </label>
+                        <label> Option 2:
+                            <input name="option-2" class="options">
+                        </label>
+                        <button>Launch Poll</button>
+                    </form>
+                </div>
+                <div id="current-poll">
+                    <h2>Current Poll</h2>
+                    <div id="current-poll-container">
 
+                    </div>
+                </div>
+            </div>
+            <div class="polls-bottom">
+                <h2>Past Polls</h2>
+                <div>
+                    <div id="past-polls-container">
+
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2022 Alchemy Code Lab</div>
