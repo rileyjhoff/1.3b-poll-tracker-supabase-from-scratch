@@ -73,10 +73,11 @@ main {
     min-height: 80%;
     margin-top: var(--gutter);
     margin-bottom: calc(var(--footer-height));
+    background-image: url(../assets/bill.png);
+    z-index: -1;
 }
 
 .login-section {
-    background-color: var(--color5);
     width: 95%;
     height: 100%;
     display: flex;
@@ -94,6 +95,7 @@ main {
     margin: 0 40px;
     padding: 20px;
     border: solid 1px black;
+    background-color: white;
 }
 
 form, form > label {
@@ -128,7 +130,6 @@ h3 {
 }
 
 .polls-section {
-    background-color: var(--color5);
     width: 95%;
     height: 100%;
     display: flex;
@@ -139,11 +140,6 @@ h3 {
     padding-left: var(--gutter);
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
-    border: 2px solid black;
-}
-
-.polls-section div {
-    border: 1px solid black;
 }
 
 .polls-section > div {
@@ -160,6 +156,8 @@ h3 {
 #create-poll, #current-poll {
     padding: 10px;
     margin: 10px;
+    border: 1px solid black;
+    background-color: white;
 }
 
 #current-poll {
@@ -191,6 +189,8 @@ h3 {
     flex-direction: column;
     align-items: center;
     min-height: 400px;
+    border: 1px solid black;
+    background-color: white;
 }
 
 #past-polls-container {
@@ -204,27 +204,24 @@ h3 {
 .current {
     display: flex;
     justify-content: space-around;
-    width: 400px;
-    height: 250px
+    max-width: 350px;
+    max-height: 250px;
+    border: 1px solid black;
 }
 
-.current h3 {
-    margin-top: 5px;
-    padding-left: 5px;
+.current p, .current h3 {
+    margin: 5px 0;
+    word-wrap: break-word;
 }
 
 .question-container {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.question-container p, .question-container h3 {
-    margin: 5px 0;
+    padding: 10px;
+    width: 200px;
 }
 
 .question-container button {
@@ -232,17 +229,18 @@ h3 {
 }
 
 .voting-container {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.voting-container p {
-    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 150px;
 }
 
 .voting-buttons {
     display: flex;
     justify-content: center;
+    margin: 5px 0;
 }
 
 .voting-buttons button{
@@ -262,6 +260,7 @@ h3 {
     height: 200px;
     width: 250px;
     margin: 10px;
+    border: 1px solid black;
 }
 
 .past button {
