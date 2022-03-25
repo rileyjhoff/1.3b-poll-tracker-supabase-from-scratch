@@ -38,3 +38,9 @@ export async function redirectToPolls() {
         location.replace('./polls');
     }
 }
+
+export async function logout() {
+    await client.auth.signOut();
+
+    return window.location.href = '../';
+}
