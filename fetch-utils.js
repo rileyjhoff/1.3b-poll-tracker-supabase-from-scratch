@@ -60,3 +60,12 @@ export async function logout() {
 
     return window.location.href = '../';
 }
+
+export async function deletePoll(id) {
+    const response = await client
+        .from('polls')
+        .delete()
+        .match({ id: id });
+
+    return response.body;
+}

@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import { logout, checkSession, createPoll, getPolls } from '../fetch-utils.js';
+import { logout, checkSession, createPoll, getPolls, deletePoll } from '../fetch-utils.js';
 import { renderCurrentPoll, renderPastPoll } from '../render-utils.js';
 
 const logoutButton = document.getElementById('logout');
@@ -91,6 +91,18 @@ async function displayAllPolls() {
     const allPolls = await getPolls();
     for (let poll of allPolls) {
         const pastPoll = renderPastPoll(poll);
+        pastPoll.setAttribute('id', poll.id);
         pastPollsEl.append(pastPoll);
     }
 }
+
+document.addEventListener('click', async (e) => {
+    if (e.target.id === 'delete-poll') {
+        if (confirm('Are you sure you want to delete this poll?') === true) {
+            alert('Poll deleted');
+            let pollId = e.path[2].id;
+            await deletePoll(pollId);
+            displayAllPolls();
+        }
+    }
+});
