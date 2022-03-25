@@ -3,6 +3,22 @@ const SUPABASE_URL = 'https://zhmowgcybteqgiwwrxln.supabase.co';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+export async function createPoll(poll) {
+    const response = await client
+        .from('polls')
+        .insert(poll);
+
+    return response.body;
+}
+
+export async function getPolls() {
+    const response = await client
+        .from('polls')
+        .select('*');
+
+    return response.body;
+}
+
 export async function signIn(email, password) {
     const response = await client.auth.signIn({ email, password });
 
