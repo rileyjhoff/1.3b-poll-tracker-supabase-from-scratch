@@ -148,13 +148,27 @@ h3 {
 }
 
 .polls-top {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #create-poll, #current-poll {
     padding: 10px;
     margin: 10px;
+}
+
+#create-poll {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#poll-form {
+    margin-top: 20px;
+}
+
+#poll-form label {
+    margin: 5px 0;
 }
 
 #poll-form button {
@@ -176,4 +190,73 @@ h3 {
     justify-content: space-evenly;
     padding: 20px;
     min-height: 200px;
+}
+
+.current {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    height: 250px
+}
+
+.current h3 {
+    margin-top: 5px;
+    padding-left: 5px;
+}
+
+.question-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.question-container p, .question-container h3 {
+    margin: 5px 0;
+}
+
+.question-container button {
+    width: fit-content;
+}
+
+.voting-container p {
+    text-align: center;
+}
+
+.voting-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.voting-buttons button{
+    height: 24px;
+    width: 21.5px;
+    text-align: center;
+    margin: 0 5px;
+    align-self: center;
+}
+
+.past {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    width: 250px;
+}
+
+.past button {
+    margin: 0 5px 5px;
+}
+
+.past p {
+    padding: 5px;
+    margin: 0px;
+}
+
+.past h3 {
+    padding: 10px 5px 5px;
+    margin: 0px;
 }
