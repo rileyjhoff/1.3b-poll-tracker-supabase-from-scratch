@@ -29,6 +29,44 @@ pollForm.addEventListener('submit', (e) => {
     displayCurrentPoll();
 });
 
+document.addEventListener('click', (e) => {
+    if (e.target.id === 'option1-add') {
+        votes1++;
+        console.log('working');
+        displayCurrentPoll();
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (e.target.id === 'option1-subtract') {
+        votes1--;
+        console.log('working');
+        displayCurrentPoll();
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (e.target.id === 'option2-add') {
+        votes2++;
+        console.log('working');
+        displayCurrentPoll();
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (e.target.id === 'option2-subtract') {
+        votes2--;
+        console.log('working');
+        displayCurrentPoll();
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (e.target.id === 'publish-poll') {
+        console.log('working');
+    }
+});
+
 logoutButton.addEventListener('click', async () => {
     await logout();
 });
