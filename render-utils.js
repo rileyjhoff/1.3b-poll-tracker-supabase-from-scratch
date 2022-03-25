@@ -84,7 +84,11 @@ export function renderPastPoll(poll) {
     const pollDiv = document.createElement('div');
     const questionEl = document.createElement('h3');
     const option1El = document.createElement('p');
+    const option1NameEl = document.createElement('span');
+    const votes1El = document.createElement('span');
     const option2El = document.createElement('p');
+    const option2NameEl = document.createElement('span');
+    const votes2El = document.createElement('span');
     const buttonDiv = document.createElement('div');
     const editButton = document.createElement('button');
     const deleteButton = document.createElement('button');
@@ -95,11 +99,19 @@ export function renderPastPoll(poll) {
     deleteButton.setAttribute('id', 'delete-poll');
 
     questionEl.textContent = poll.question;
-    option1El.textContent = poll.option1 + ': ' + poll.votes1;
-    option2El.textContent = poll.option2 + ': ' + poll.votes2;
+    option1NameEl.textContent = poll.option1;
+    votes1El.textContent = poll.votes1;
+    option2NameEl.textContent = poll.option2;
+    votes2El.textContent = poll.votes2;
     editButton.textContent = 'Edit';
     deleteButton.textContent = 'Delete';
 
+    option1El.append(option1NameEl);
+    option1El.append(': ');
+    option1El.append(votes1El);
+    option2El.append(option2NameEl);
+    option2El.append(': ');
+    option2El.append(votes2El);
     buttonDiv.append(editButton, deleteButton);
     pollDiv.append(questionEl, option1El, option2El, buttonDiv);
 

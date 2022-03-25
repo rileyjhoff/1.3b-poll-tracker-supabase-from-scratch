@@ -69,3 +69,12 @@ export async function deletePoll(id) {
 
     return response.body;
 }
+
+export async function updatePoll(poll, id) {
+    const response = await client
+        .from('polls')
+        .update({ question:poll.question, option1:poll.option1, option2:poll.option2, votes1:poll.votes1, votes2:poll.votes2 })
+        .match({ id: id });
+
+    return response.body;
+}

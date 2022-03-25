@@ -1,5 +1,5 @@
 // import functions and grab DOM elements
-import { logout, checkSession, createPoll, getPolls, deletePoll } from '../fetch-utils.js';
+import { logout, checkSession, createPoll, getPolls, deletePoll, updatePoll } from '../fetch-utils.js';
 import { renderCurrentPoll, renderPastPoll } from '../render-utils.js';
 
 const logoutButton = document.getElementById('logout');
@@ -76,6 +76,7 @@ document.addEventListener('click', async (e) => {
     }
 });
 
+
 logoutButton.addEventListener('click', async () => {
     await logout();
 });
@@ -100,9 +101,45 @@ document.addEventListener('click', async (e) => {
     if (e.target.id === 'delete-poll') {
         if (confirm('Are you sure you want to delete this poll?') === true) {
             alert('Poll deleted');
-            let pollId = e.path[2].id;
+            const pollId = e.path[2].id;
             await deletePoll(pollId);
             displayAllPolls();
         }
+    }
+});
+
+document.addEventListener('click', async (e) => {
+    if (e.target.id === 'edit-poll') {
+        const confirmButton = document.createElement('button');
+        confirmButton.textContent = 'Confirm Edits';
+        confirmButton.id = 'confirm-edits';
+        const editablePoll = e.path[2];
+        editablePoll.removeChild(editablePoll.lastChild);
+        editablePoll.append(confirmButton);
+        const editableQuestion = editablePoll.childNodes[0];
+        const editableOption1 = editablePoll.childNodes[1].childNodes[0];
+        const editableOption2 = editablePoll.childNodes[2].childNodes[0];
+        const editableVotes1 = editablePoll.childNodes[1].childNodes[2];
+        const editableVotes2 = editablePoll.childNodes[2].childNodes[2];
+        editableQuestion.setAttribute('contenteditable', 'true');
+        editableOption1.setAttribute('contenteditable', 'true');
+        editableOption2.setAttribute('contenteditable', 'true');
+        editableVotes1.setAttribute('contenteditable', 'true');
+        editableVotes2.setAttribute('contenteditable', 'true');
+        editablePoll.style.fontStyle = 'italic';
+        alert(`You can now edit past poll details for: ${editableQuestion.textContent}. After making changes, press CONFIRM EDITS.`);
+        document.addEventListener('click', async (e) => {
+            if (e.target.id === 'confirm-edits') {
+                if (confirm('Press OK to confirm changes.') === true) {
+                    alert('Poll details updated.');
+                    const updatedPoll = { question:editableQuestion.textContent, 
+                        option1:editableOption1.textContent, option2:editableOption2.textContent,
+                        votes1:editableVotes1.textContent, votes2:editableVotes2.textContent };
+                    const pollId = e.path[1].id;
+                    await updatePoll(updatedPoll, pollId);
+                    displayAllPolls();
+                }
+            }
+        });
     }
 });
