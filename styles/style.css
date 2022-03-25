@@ -148,9 +148,9 @@ h3 {
 }
 
 .polls-top {
-    width: 80%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 #create-poll, #current-poll {
@@ -161,7 +161,12 @@ h3 {
 }
 
 #current-poll {
-    width:424px;
+    width: 400px;
+}
+
+#current-poll-container {
+    display: flex;
+    justify-content: center;
 }
 
 #create-poll {
