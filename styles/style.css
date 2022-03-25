@@ -231,9 +231,9 @@ h3 {
 
 .voting-buttons button{
     height: 24px;
-    width: 21.5px;
+    width: 24px;
     text-align: center;
-    margin: 0 5px;
+    margin: 0 7px;
     align-self: center;
 }
 
@@ -245,6 +245,7 @@ h3 {
     align-items: center;
     height: 200px;
     width: 250px;
+    margin: 10px;
 }
 
 .past button {
