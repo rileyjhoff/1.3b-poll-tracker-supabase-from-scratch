@@ -113,6 +113,10 @@ form, form > label {
     margin: 0 0 5px;
 }
 
+.login label {
+    padding: 5px 0;
+}
+
 h2 {
     /* font-size: 1.8rem; */
     font-weight: bold;
@@ -187,6 +191,7 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 400px;
 }
 
 #past-polls-container {
@@ -253,7 +258,7 @@ h3 {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     height: 200px;
     width: 250px;
@@ -272,4 +277,12 @@ h3 {
 .past h3 {
     padding: 10px 5px 5px;
     margin: 0px;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.past:hover div {
+    visibility: visible;
 }

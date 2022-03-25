@@ -90,6 +90,7 @@ export function renderPastPoll(poll) {
     const deleteButton = document.createElement('button');
 
     pollDiv.classList.add('past');
+    buttonDiv.classList.add('hide');
     editButton.setAttribute('id', 'edit-poll');
     deleteButton.setAttribute('id', 'delete-poll');
 
