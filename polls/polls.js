@@ -87,7 +87,7 @@ document.addEventListener('click', async (e) => {
     }
 });
 
-document.addEventListener('click', async (e) => {
+document.addEventListener('click', (e) => {
     if (e.target.id === 'edit-poll') {
         const confirmButton = document.createElement('button');
         confirmButton.textContent = 'Confirm Edits';
@@ -130,12 +130,20 @@ function displayCurrentPoll() {
     currentPollEl.append(newPoll);
 }
 
+let pastPolls = [];
+
 async function displayAllPolls() {
     pastPollsEl.textContent = '';
     const allPolls = await getPolls();
     for (let poll of allPolls) {
+        pastPolls.push(poll);
+    }
+    pastPolls.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+    console.log(pastPolls);
+    for (let poll of pastPolls) {
         const pastPoll = renderPastPoll(poll);
         pastPoll.setAttribute('id', poll.id);
         pastPollsEl.append(pastPoll);
     }
+    pastPolls = [];
 }
