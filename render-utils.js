@@ -69,3 +69,38 @@ export function renderCurrentPoll(question, option1, option2, votes1, votes2) {
 
     return pollDiv;
 }
+
+{/* <div class="past">
+    <h3>What is this going to look like? when i stretch it out this far</h3>
+    <p>Option 1: 0</p>
+    <p>Option 2: 0</p>
+    <div>
+        <button id="edit-poll">Edit</button>
+        <button id="delete-poll">Delete</button>
+    </div>
+</div> */}
+
+export function renderPastPoll(poll) {
+    const pollDiv = document.createElement('div');
+    const questionEl = document.createElement('h3');
+    const option1El = document.createElement('p');
+    const option2El = document.createElement('p');
+    const buttonDiv = document.createElement('div');
+    const editButton = document.createElement('button');
+    const deleteButton = document.createElement('button');
+
+    pollDiv.classList.add('past');
+    editButton.setAttribute('id', 'edit-poll');
+    deleteButton.setAttribute('id', 'delete-poll');
+
+    questionEl.textContent = poll.question;
+    option1El.textContent = poll.option1 + ': ' + poll.votes1;
+    option2El.textContent = poll.option2 + ': ' + poll.votes2;
+    editButton.textContent = 'Edit';
+    deleteButton.textContent = 'Delete';
+
+    buttonDiv.append(editButton, deleteButton);
+    pollDiv.append(questionEl, option1El, option2El, buttonDiv);
+
+    return pollDiv;
+}

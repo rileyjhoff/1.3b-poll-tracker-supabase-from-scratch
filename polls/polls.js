@@ -1,10 +1,11 @@
 // import functions and grab DOM elements
-import { logout, checkSession } from '../fetch-utils.js';
-import { renderCurrentPoll } from '../render-utils.js';
+import { logout, checkSession, createPoll, getPolls } from '../fetch-utils.js';
+import { renderCurrentPoll, renderPastPoll } from '../render-utils.js';
 
 const logoutButton = document.getElementById('logout');
 const pollForm = document.getElementById('poll-form');
-const currentGameEl = document.getElementById('current-poll-container');
+const currentPollEl = document.getElementById('current-poll-container');
+const pastPollsEl = document.getElementById('past-polls-container');
 
 // let state
 checkSession();
@@ -32,7 +33,6 @@ pollForm.addEventListener('submit', (e) => {
 document.addEventListener('click', (e) => {
     if (e.target.id === 'option1-add') {
         votes1++;
-        console.log('working');
         displayCurrentPoll();
     }
 });
@@ -40,7 +40,6 @@ document.addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
     if (e.target.id === 'option1-subtract') {
         votes1--;
-        console.log('working');
         displayCurrentPoll();
     }
 });
@@ -48,7 +47,6 @@ document.addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
     if (e.target.id === 'option2-add') {
         votes2++;
-        console.log('working');
         displayCurrentPoll();
     }
 });
@@ -56,14 +54,21 @@ document.addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
     if (e.target.id === 'option2-subtract') {
         votes2--;
-        console.log('working');
         displayCurrentPoll();
     }
 });
 
-document.addEventListener('click', (e) => {
+document.addEventListener('click', async (e) => {
     if (e.target.id === 'publish-poll') {
-        console.log('working');
+        const poll = { question:question, option1:option1, option2:option2, votes1:votes1, votes2:votes2 };
+        await createPoll(poll);
+        displayAllPolls();
+        question = '';
+        option1 = '';
+        option2 = '';
+        votes1 = 0;
+        votes2 = 0;
+        currentPollEl.textContent = '';
     }
 });
 
@@ -72,7 +77,16 @@ logoutButton.addEventListener('click', async () => {
 });
 
 function displayCurrentPoll() {
-    currentGameEl.textContent = '';
+    currentPollEl.textContent = '';
     const newPoll = renderCurrentPoll(question, option1, option2, votes1, votes2);
-    currentGameEl.append(newPoll);
+    currentPollEl.append(newPoll);
+}
+
+async function displayAllPolls() {
+    pastPollsEl.textContent = '';
+    const allPolls = await getPolls();
+    for (let poll of allPolls) {
+        const pastPoll = renderPastPoll(poll);
+        pastPollsEl.append(pastPoll);
+    }
 }
