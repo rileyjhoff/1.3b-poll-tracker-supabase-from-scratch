@@ -71,7 +71,6 @@ main {
     justify-content: center;
     align-items: center;
     min-height: 80%;
-    max-height: 90%;
     margin-top: var(--gutter);
     margin-bottom: calc(var(--footer-height));
 }

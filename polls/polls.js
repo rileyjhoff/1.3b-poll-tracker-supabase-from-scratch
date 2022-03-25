@@ -76,27 +76,6 @@ document.addEventListener('click', async (e) => {
     }
 });
 
-
-logoutButton.addEventListener('click', async () => {
-    await logout();
-});
-
-function displayCurrentPoll() {
-    currentPollEl.textContent = '';
-    const newPoll = renderCurrentPoll(question, option1, option2, votes1, votes2);
-    currentPollEl.append(newPoll);
-}
-
-async function displayAllPolls() {
-    pastPollsEl.textContent = '';
-    const allPolls = await getPolls();
-    for (let poll of allPolls) {
-        const pastPoll = renderPastPoll(poll);
-        pastPoll.setAttribute('id', poll.id);
-        pastPollsEl.append(pastPoll);
-    }
-}
-
 document.addEventListener('click', async (e) => {
     if (e.target.id === 'delete-poll') {
         if (confirm('Are you sure you want to delete this poll?') === true) {
@@ -130,16 +109,33 @@ document.addEventListener('click', async (e) => {
         alert(`You can now edit past poll details for: ${editableQuestion.textContent}. After making changes, press CONFIRM EDITS.`);
         document.addEventListener('click', async (e) => {
             if (e.target.id === 'confirm-edits') {
-                if (confirm('Press OK to confirm changes.') === true) {
-                    alert('Poll details updated.');
-                    const updatedPoll = { question:editableQuestion.textContent, 
-                        option1:editableOption1.textContent, option2:editableOption2.textContent,
-                        votes1:editableVotes1.textContent, votes2:editableVotes2.textContent };
-                    const pollId = e.path[1].id;
-                    await updatePoll(updatedPoll, pollId);
-                    displayAllPolls();
-                }
+                const updatedPoll = { question:editableQuestion.textContent, 
+                    option1:editableOption1.textContent, option2:editableOption2.textContent,
+                    votes1:editableVotes1.textContent, votes2:editableVotes2.textContent };
+                const pollId = e.path[1].id;
+                await updatePoll(updatedPoll, pollId);
+                displayAllPolls();
             }
         });
     }
 });
+
+logoutButton.addEventListener('click', async () => {
+    await logout();
+});
+
+function displayCurrentPoll() {
+    currentPollEl.textContent = '';
+    const newPoll = renderCurrentPoll(question, option1, option2, votes1, votes2);
+    currentPollEl.append(newPoll);
+}
+
+async function displayAllPolls() {
+    pastPollsEl.textContent = '';
+    const allPolls = await getPolls();
+    for (let poll of allPolls) {
+        const pastPoll = renderPastPoll(poll);
+        pastPoll.setAttribute('id', poll.id);
+        pastPollsEl.append(pastPoll);
+    }
+}
