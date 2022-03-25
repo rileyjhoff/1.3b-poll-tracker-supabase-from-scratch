@@ -1,9 +1,10 @@
 // import functions and grab DOM elements
 import { logout, checkSession } from '../fetch-utils.js';
-import {} from '../render-utils.js';
+import { renderCurrentPoll } from '../render-utils.js';
 
 const logoutButton = document.getElementById('logout');
 const pollForm = document.getElementById('poll-form');
+const currentGameEl = document.getElementById('current-poll-container');
 
 // let state
 checkSession();
@@ -25,8 +26,15 @@ pollForm.addEventListener('submit', (e) => {
     option1 = data.get('option1');
     option2 = data.get('option2');
     pollForm.reset();
+    displayCurrentPoll();
 });
 
 logoutButton.addEventListener('click', async () => {
     await logout();
 });
+
+function displayCurrentPoll() {
+    currentGameEl.textContent = '';
+    const newPoll = renderCurrentPoll(question, option1, option2, votes1, votes2);
+    currentGameEl.append(newPoll);
+}
