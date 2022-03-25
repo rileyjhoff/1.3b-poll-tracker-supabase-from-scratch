@@ -3,24 +3,30 @@ const SUPABASE_URL = 'https://zhmowgcybteqgiwwrxln.supabase.co';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-export async function signInUser(email, password) {
+export async function signIn(email, password) {
     const response = await client.auth.signIn({ email, password });
 
     return response.user;
 }
 
-export async function signUpUser(email, password) {
+export async function signUp(email, password) {
     const response = await client.auth.signUp({ email, password });
 
     return response.user;
 }
 
 export async function getUser() {
+    const user = client.auth.user();
+
+    return user;
+}
+
+export async function getSession() {
     return client.auth.session();
 }
 
 export async function checkSession() {
-    const user = await getUser();
+    const user = await getSession();
 
     if (!user) {
         location.replace('../');
@@ -28,7 +34,7 @@ export async function checkSession() {
 }
 
 export async function redirectToPolls() {
-    if (await getUser()) {
+    if (await getSession()) {
         location.replace('./polls');
     }
 }
