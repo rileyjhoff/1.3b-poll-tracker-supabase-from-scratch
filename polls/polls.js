@@ -1,5 +1,6 @@
 // import functions and grab DOM elements
 import { logout, checkSession } from '../fetch-utils.js';
+import {} from '../render-utils.js';
 
 const logoutButton = document.getElementById('logout');
 const pollForm = document.getElementById('poll-form');
@@ -25,7 +26,6 @@ pollForm.addEventListener('submit', (e) => {
     option2 = data.get('option2');
     pollForm.reset();
 });
-
 
 logoutButton.addEventListener('click', async () => {
     await logout();
