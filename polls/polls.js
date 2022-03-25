@@ -20,6 +20,10 @@ let votes2 = 0;
 // use user input to update state 
 // update DOM to reflect the new state
 
+window.addEventListener('load', async () => {
+    displayAllPolls();
+});
+
 pollForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(pollForm);
