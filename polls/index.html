@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <title>Polls</title>
+</head>
+
+<body>
+    <header>
+        <div class="gutter-right logo">
+            <img src="../assets/big-logo.png" />
+        </div>
+        <button id="logout">Logout</button>
+    </header>
+    <main>
+        <section class="polls-section">
+            <div class="polls-top">
+                <div id="create-poll">
+                    <h2>Create a Poll</h2>
+                    <form id="poll-form">
+                        <label> Question:
+                            <input name="question" id="question">
+                        </label>
+                        <label> Option 1:
+                            <input name="option1" class="options">
+                        </label>
+                        <label> Option 2:
+                            <input name="option2" class="options">
+                        </label>
+                        <button>Launch Poll</button>
+                    </form>
+                </div>
+                <div id="current-poll">
+                    <h2>Current Poll</h2>
+                    <div id="current-poll-container">
+
+                    </div>
+                </div>
+            </div>
+            <div class="polls-bottom">
+                <h2>Past Polls</h2>
+                <div>
+                    <div id="past-polls-container">
+                        <div class="past">
+                            <h3>What is this going to look like? when i stretch it out this far</h3>
+                            <p>Option 1: 0</p>
+                            <p>Option 2: 0</p>
+                            <div>
+                                <button id="edit-poll">Edit</button>
+                                <button id="delete-poll">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="copy gutter-right">&copy; 2022 Alchemy Code Lab</div>
+    </footer>
+
+    <script type="module" src="./polls.js"></script>
+</body>
+
+</html>
